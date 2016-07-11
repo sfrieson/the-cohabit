@@ -1,0 +1,31 @@
+@import "variables";
+
+.color-def {
+  border-right: 2px dotted $beige;
+  display: inline-block;
+  margin: 0;
+  padding: 25px;
+  text-align: center;
+  width: 150px;
+
+  &:last-child {
+    border-right: none;
+  }
+}
+
+.color-palette {
+  display: inline-block;
+  border: 2px solid $beige;
+  height: 50px;
+  width: 60px;
+}
+
+header {
+  box-sizing: border-box;
+  height: 200px;
+  margin-bottom: 50px;
+  padding: 50px;
+}
+section {
+  margin: 0 50px 50px 50px;
+}

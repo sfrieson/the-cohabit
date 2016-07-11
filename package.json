@@ -1,0 +1,25 @@
+{
+  "name": "the-cohabit",
+  "version": "0.0.1",
+  "description": "The website for The Cohabit series.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "The Cohabit",
+    "cohabit",
+    "cohabitation",
+    "Prismatic Radio",
+    "Randy Scott Carrol",
+    "radio",
+    "podcast"
+  ],
+  "author": "Steven Frieson",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2"
+  }
+}

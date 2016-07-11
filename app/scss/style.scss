@@ -1,0 +1,41 @@
+@import "variables";
+
+body {
+  background-color: $black;
+  color: $beige;
+  font-family: $freight;
+  font-size: 24px;
+  margin: 0;
+}
+h1,
+.h1 {
+  font-family: $bebas;
+  font-size: 32px;
+  letter-spacing: .1em;
+  line-height: 1.4em;
+}
+h2,
+.h2 {
+  color: $red;
+  font-family: $brandon;
+  font-size: 20px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+h3,
+.h3 {
+  font-family: $brandon;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+// Font and background colors
+@for $i from 1 through length($colors) {
+  .#{nth($color-names, $i)} {
+    background-color: #{nth($colors, $i)};
+  }
+  .#{nth($color-names, $i)}-font {
+    color: #{nth($colors, $i)};
+  }
+}

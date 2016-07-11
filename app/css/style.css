@@ -1,0 +1,52 @@
+body {
+  background-color: #333333;
+  color: #ebe8df;
+  font-family: "freight-sans-pro", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  margin: 0; }
+
+h1,
+.h1 {
+  font-family: "bebas-neue", Impact, sans-serif;
+  font-size: 32px;
+  letter-spacing: .1em;
+  line-height: 1.4em; }
+
+h2,
+.h2 {
+  color: #cd4837;
+  font-family: "brandon-grotesque", Futura, sans-serif;
+  font-size: 20px;
+  letter-spacing: .1em;
+  text-transform: uppercase; }
+
+h3,
+.h3 {
+  font-family: "brandon-grotesque", Futura, sans-serif;
+  font-size: 10px;
+  letter-spacing: .1em;
+  text-transform: uppercase; }
+
+.red {
+  background-color: #cd4837; }
+
+.red-font {
+  color: #cd4837; }
+
+.dark-red {
+  background-color: #993629; }
+
+.dark-red-font {
+  color: #993629; }
+
+.beige {
+  background-color: #ebe8df; }
+
+.beige-font {
+  color: #ebe8df; }
+
+.black {
+  background-color: #333333; }
+
+.black-font {
+  color: #333333; }
