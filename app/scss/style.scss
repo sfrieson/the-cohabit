@@ -1,16 +1,18 @@
 @import "variables";
+@import "grid";
 
 body {
   background-color: $black;
   color: $beige;
   font-family: $freight;
   font-size: 24px;
+  line-height: 1.5em;
   margin: 0;
 }
 h1,
 .h1 {
   font-family: $bebas;
-  font-size: 32px;
+  font-size: 1.333em;
   letter-spacing: .1em;
   line-height: 1.4em;
 }
@@ -18,16 +20,34 @@ h2,
 .h2 {
   color: $red;
   font-family: $brandon;
-  font-size: 20px;
+  font-size: .8333em;
   letter-spacing: .1em;
   text-transform: uppercase;
 }
 h3,
 .h3 {
   font-family: $brandon;
-  font-size: 10px;
+  font-size: .4167em;
   letter-spacing: .1em;
   text-transform: uppercase;
+}
+.section-heading {
+  text-align: center;
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 20px auto;
+}
+.name {
+  @extend .h2;
+  color: $red;
+  background-color: $beige;
+  display: inline;
+  padding: 2px 5px;
+  margin-right: .25em;
+  text-transform: uppercase;
+}
+.center {
+  text-align: center;
 }
 
 // Font and background colors
@@ -37,5 +57,135 @@ h3,
   }
   .#{nth($color-names, $i)}-font {
     color: #{nth($colors, $i)};
+  }
+}
+
+a {
+  color: inherit;
+}
+
+hr {
+  border: 2px solid $red;
+  width: 75px;
+}
+
+.header {
+  margin: {
+    top: 100px;
+    left: 100px;
+    right: 100px;
+    bottom: 30px;
+  }
+  text-align: center;
+
+  &__logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 375px;
+    width: 85%;
+    img {
+      width: 100%;
+    }
+  }
+
+  &__tag-line {
+    @extend .h1;
+    color: $beige;
+  }
+  &__quote {
+    font-family: Times, Times New Roman, serif;
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 1em;
+  }
+  &__quote-attr {
+    @extend .h3;
+  }
+}
+
+$player-margin: 50px;
+.player {
+  align-items: center;
+  background-color: $red;
+  columns: 1;
+  display: flex;
+  font-size: 12px;
+  height: 100px;
+  text-align: center;
+  width: 100vw;
+
+  * {
+    display: inline-block;
+  }
+
+  &__btn {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    margin-left: $player-margin;
+    height: 50px;
+    width: 50px;
+
+    &--play {
+      background-image: url('/images/play-icon.png');
+    }
+    &--pause {
+      background-image: url('/images/play-icon.png');
+    }
+  }
+
+  &__title {
+    @extend .h3;
+    font-size: inherit;
+    margin-left: $player-margin;
+  }
+
+  &__time {
+    margin-left: $player-margin;
+  }
+
+  &__progress {
+    -webkit-appearance: none;
+    appearance: none;
+    padding-top: 6px;
+    margin-left: $player-margin;
+
+    &::-webkit-progress-bar {
+      height: 1px;
+      background-color: $dark-red;
+    }
+    &::-webkit-progress-value {
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 5px 2px rgba(255,255,255, .2);
+      height: 7px;
+      position: relative;
+      top: -3px;
+    }
+  }
+
+  &__logo {
+    background-image: url('/images/logo-soundcloud.svg');
+    background-repeat: no-repeat;
+    background-size: contain;;
+    display: inline-block;;
+    margin-left: $player-margin;
+    height: 20px;
+    width: 30px;
+  }
+}
+
+.main {
+  width: 500px;
+}
+section {
+  padding: 40px 20px;
+}
+.guest {
+  &__img {
+    &-container {
+      text-align: right;
+    }
+    border: 3px solid $beige;
   }
 }

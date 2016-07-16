@@ -3,40 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <title>The Cohabit</title>
-  <script async src="/js/typekit.js"></script>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/style-guide.css">
 </head>
 <body>
-  <header class="red">
-    <h1>The Cohabit Style Guide</h1>
+  <header class="header">
+    <h1 class="header__logo"><a href="http://thecohabit.com">
+      <img src="/images/cohabit-logo-paper.png" alt="The Cohabit">
+    </a></h1>
+    <h2 class="header__tag-line">What does it take to live together?</h2>
+    <hr>
+    <h3>A <a href="http://www.prismaticradio.com/">Prismatic Radio</a> Production</h3>
+    <div class="header__quote">&quot;This intimate and moving series takes podcasts to a new level. Heartbreaking and beautiful.&quot;</div>
+    <div class="header__quote-attr">- Jason Russell, Director of Kony 2012</div>
   </header>
-
-  <section>
-    <h2>Colors</h2>
-    <figure class="color-def">
-      <div class="color-palette red"></div>
-      <figcaption class="h3">.red, #cd4837</figcaption>
-    </figure>
-    <figure class="color-def">
-      <div class="color-palette dark-red"></div>
-      <figcaption class="h3">.dark-red, #993629</figcaption>
-    </figure>
-    <figure class="color-def">
-      <div class="color-palette beige"></div>
-      <figcaption class="h3">.beige, #ebe8df</figcaption>
-    </figure>
-    <figure class="color-def">
-      <div class="color-palette black"></div>
-      <figcaption class="h3">.black, #333333</figcaption>
-    </figure>
+  <div class="player">
+    <figure class="player__btn player__btn--play"> </figure>
+    <span class="player__title">Podcast Teaser</span>
+    <div class="player__time"><span id="min">2</span>:<span id="sec">10</span></div>
+    <progress class="player__progress" value="50" max="100">50%</progress>
+    <span class="player__logo"></span>
+  </div>
+  <main>
+    <div class="center">
+      <h2 class="red beige-font section-heading">Some of Our Guests</h2>
+    </div>
+    <section>
+      <div class="row guest">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_b72ca81d8fa946759213017afedf0cad.jpg/v1/fill/w_330,h_227,al_c,q_80,usm_0.66_1.00_0.01/78559a_b72ca81d8fa946759213017afedf0cad.jpg" style="object-fit: cover;"></div>
+        <div class="two-thirds column"><h3 class="name">Ann Friedman</h3>is an L.A. Based freelance journalist who writes about gender, politics, and culture. She is a columnist for New York Magazine, newsletter aficionado, and the co-host of the popular podcast Call Your Girlfriend that she hosts with her “long distance bestie” Aminatou Sow.</div>
+      </div>
+    </section>
+    <section>
+      <div class="row guest">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_1726a8c7d8104b86ab2d7b60a5e42eb2.jpg/v1/fill/w_330,h_227,al_c,q_80,usm_0.66_1.00_0.01/78559a_1726a8c7d8104b86ab2d7b60a5e42eb2.jpg" style="object-fit: cover;"></div>
+        <div class="two-thirds column"><h3 class="name">Dr. Elizabeth Pleck</h3> is a professor emerita of history at the University of Illinois at Urbana-Champaign. She is the author of Not Just Roommates: Cohabitation After the Sexual Revolution and specializes in the study of 20th century U.S. women’s history, history of women and gender.</div>
+      </div>
+    </section>
+    <section>
+      <div class="row guest">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_77b18b96b76b4effaa6bc04f4ad8ad33.jpg/v1/fill/w_330,h_227,al_c,q_80,usm_0.66_1.00_0.01/78559a_77b18b96b76b4effaa6bc04f4ad8ad33.jpg" style="object-fit: cover;"></div>
+        <div class="two-thirds column"><h3 class="name">Dr. Galeana Rhoades</h3> is a research associate professor of psychology at the University of Denver. Her research focuses on cohabitating couples and romantic relationship development. She also runs her own private practice, specializing in couples and families.</div>
+      </div>
+    </section>
+    <section>
+      <div class="row guest">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_f2d8e346a23d40a081bf2b5da4861042.png/v1/fill/w_330,h_227,al_c,lg_1/78559a_f2d8e346a23d40a081bf2b5da4861042.png" style="object-fit: cover;" ></div>
+        <div class="two-thirds column"><h3 class="name">Lillian Faderman</h3> is an internationally recognized expert on lesbian and LGBT history and literature. She is the author of The Gay Revolution which was named a New York Times and Washington Post 2015 Notable Nonfiction Book.</div>
+      </div>
+    </section>
+    <section>
+      <div class="row guest">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_031b40263a89485aa60293a0209a1433.jpg/v1/fill/w_330,h_227,al_c,q_80,usm_0.66_1.00_0.01/78559a_031b40263a89485aa60293a0209a1433.jpg" style="object-fit: cover;"></div>
+        <div class="two-thirds column"><h3 class="name">Lianna Carerra</h3> is a comedian, writer, and actor, touring internationally as a stand-up comic. She is currently cohabiting in Los Angeles, California with her partner and their dogs.</div>
+      </div>
+    </section>
+  </main>
+  <section class="contact center beige">
+    <h2 class="red beige-font section-heading">Keep in Touch</h2>
+    <form action="#">
+      <input type="text" placeholder="Your name">
+      <input type="text" placeholder="Your email">
+      <button type="submit">Subscribe Me!</button>
+    </form>
   </section>
-  <section>
-    <h2>Typography</h2>
-    <div class="h1">Heading 1</div>
-    <div class="h2">Heading 2</div>
-    <div class="h3">Heading 3</div>
-    <div>Body Text</div>
-  </section>
+  <footer class="center red">
+    <a href="http://facebook.com"><span class="icon icon-fb">FB</span></a>
+    <a href="http://instagram.com"><span class="icon icon-instagram">IG</span></a>
+    <a href="mailto:hello@prismaticradio.com"><span class="icon icon-email">E-M</span></a>
+  </footer>
 </body>
 </html>

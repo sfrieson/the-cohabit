@@ -1,31 +1,95 @@
+@charset "UTF-8";
+/* Grid (Mobile first)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.row:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.column {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .column {
+    padding-left: 30px; }
+  .column:first-child {
+    padding-left: 0; }
+  /* Semantic columns */
+  .one-quarter.column {
+    width: 25%; }
+  .one-third.column {
+    width: 33.33333%; }
+  .one-half.column {
+    width: 50%; }
+  .two-thirds.column {
+    width: 66.66667%; }
+  .three-quarters.column {
+    width: 75%; }
+  /* Semantic offsets */
+  .offset-one-quarter.column {
+    margin-left: 25%; }
+  .offset-one-third.column {
+    margin-left: 33.33333%; }
+  .offset-one-half.column {
+    margin-left: 50%; }
+  .offset-two-thirds.column {
+    margin-left: 66.66667%; }
+  .offset-three-quarters.column {
+    margin-left: 75%; } }
+
 body {
   background-color: #333333;
   color: #ebe8df;
   font-family: "freight-sans-pro", Helvetica, Arial, sans-serif;
   font-size: 24px;
+  line-height: 1.5em;
   margin: 0; }
 
 h1,
-.h1 {
+.h1,
+.header__tag-line {
   font-family: "bebas-neue", Impact, sans-serif;
-  font-size: 32px;
+  font-size: 1.333em;
   letter-spacing: .1em;
   line-height: 1.4em; }
 
 h2,
-.h2 {
+.h2,
+.name {
   color: #cd4837;
   font-family: "brandon-grotesque", Futura, sans-serif;
-  font-size: 20px;
+  font-size: .8333em;
   letter-spacing: .1em;
   text-transform: uppercase; }
 
 h3,
-.h3 {
+.h3,
+.header__quote-attr,
+.player__title {
   font-family: "brandon-grotesque", Futura, sans-serif;
-  font-size: 10px;
+  font-size: .4167em;
   letter-spacing: .1em;
   text-transform: uppercase; }
+
+.section-heading {
+  text-align: center;
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 20px auto; }
+
+.name {
+  color: #cd4837;
+  background-color: #ebe8df;
+  display: inline;
+  padding: 2px 5px;
+  margin-right: .25em;
+  text-transform: uppercase; }
+
+.center {
+  text-align: center; }
 
 .red {
   background-color: #cd4837; }
@@ -50,3 +114,93 @@ h3,
 
 .black-font {
   color: #333333; }
+
+a {
+  color: inherit; }
+
+hr {
+  border: 2px solid #cd4837;
+  width: 75px; }
+
+.header {
+  margin-top: 100px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 30px;
+  text-align: center; }
+  .header__logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 375px;
+    width: 85%; }
+    .header__logo img {
+      width: 100%; }
+  .header__tag-line {
+    color: #ebe8df; }
+  .header__quote {
+    font-family: Times, Times New Roman, serif;
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 1em; }
+
+.player {
+  align-items: center;
+  background-color: #cd4837;
+  columns: 1;
+  display: flex;
+  font-size: 12px;
+  height: 100px;
+  text-align: center;
+  width: 100vw; }
+  .player * {
+    display: inline-block; }
+  .player__btn {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    margin-left: 50px;
+    height: 50px;
+    width: 50px; }
+    .player__btn--play {
+      background-image: url("/images/play-icon.png"); }
+    .player__btn--pause {
+      background-image: url("/images/play-icon.png"); }
+  .player__title {
+    font-size: inherit;
+    margin-left: 50px; }
+  .player__time {
+    margin-left: 50px; }
+  .player__progress {
+    -webkit-appearance: none;
+    appearance: none;
+    padding-top: 6px;
+    margin-left: 50px; }
+    .player__progress::-webkit-progress-bar {
+      height: 1px;
+      background-color: #993629; }
+    .player__progress::-webkit-progress-value {
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.2);
+      height: 7px;
+      position: relative;
+      top: -3px; }
+  .player__logo {
+    background-image: url("/images/logo-soundcloud.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    margin-left: 50px;
+    height: 20px;
+    width: 30px; }
+
+.main {
+  width: 500px; }
+
+section {
+  padding: 40px 20px; }
+
+.guest__img {
+  border: 3px solid #ebe8df; }
+  .guest__img-container {
+    text-align: right; }
