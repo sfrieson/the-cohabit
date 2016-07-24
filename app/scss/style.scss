@@ -35,7 +35,12 @@ h3,
   text-align: center;
   display: inline-block;
   padding: 8px 12px;
-  margin: 20px auto;
+  margin: {
+    bottom: 20px;
+    left: auto;
+    right: auto;
+    top: 60px;
+  };
 }
 .name {
   @extend .h2;
@@ -68,14 +73,29 @@ hr {
   border: 2px solid $red;
   width: 75px;
 }
-
+.space-below {
+  margin-bottom: 300px;
+}
 .header {
-  margin: {
+  background-image: url('https://static.wixstatic.com/media/78559a_edf9b500d6684619bea78c1931aa9812.png/v1/fill/w_1178,h_593,al_c,usm_0.66_1.00_0.01/78559a_edf9b500d6684619bea78c1931aa9812.png'), url('http://www.wzchutian.com/wp-content/uploads/w/w-stunning-vinyl-wood-effect-planks-wood-planks-tile-floor-wood-planks-texture-free-wood-planks-tile-wood-roof-planks-wood-roasting-planks-wood-planks-for-raised-beds-wood-grilling-planks-reci.jpg');
+  background-position: bottom center, top left;
+  background-repeat: no-repeat, repeat;
+  background-size: auto, cover;
+  box-sizing: border-box;
+
+  padding: {
     top: 100px;
-    left: 100px;
-    right: 100px;
+    left: 20px;
+    right: 20px;
     bottom: 30px;
   }
+  @media (min-width: 550px) {
+    padding: {
+      left: 100px;
+      right: 100px;
+    }
+  }
+
   text-align: center;
 
   &__logo {
@@ -93,29 +113,33 @@ hr {
     color: $beige;
   }
   &__quote {
+    background-color: rgba($black, .5);
+    display: inline-block;
     font-family: Times, Times New Roman, serif;
     font-size: 16px;
     font-style: italic;
     margin-bottom: 1em;
+    padding: 3px 8px;
   }
   &__quote-attr {
     @extend .h3;
+    text-shadow: 0 0 15px $black;
   }
 }
 
 $player-margin: 50px;
 .player {
-  align-items: center;
   background-color: $red;
-  columns: 1;
-  display: flex;
+  box-sizing: border-box;
   font-size: 12px;
-  height: 100px;
+  min-height: 100px;
+  padding: 50px 10px;
   text-align: center;
   width: 100vw;
 
   * {
     display: inline-block;
+    vertical-align: middle;
   }
 
   &__btn {
@@ -128,6 +152,13 @@ $player-margin: 50px;
 
     &--play {
       background-image: url('/images/play-icon.png');
+      margin-left: 20px;
+      margin-right: 0;
+      float: left;
+      @media (min-width: 600px) {
+        float: none;
+        margin: 0;
+      }
     }
     &--pause {
       background-image: url('/images/play-icon.png');
@@ -149,6 +180,7 @@ $player-margin: 50px;
     appearance: none;
     padding-top: 6px;
     margin-left: $player-margin;
+    width: 200px;
 
     &::-webkit-progress-bar {
       height: 1px;
@@ -169,23 +201,109 @@ $player-margin: 50px;
     background-repeat: no-repeat;
     background-size: contain;;
     display: inline-block;;
-    margin-left: $player-margin;
+    margin-left: 10px;
     height: 20px;
-    width: 30px;
+    width: 20px;
   }
 }
 
-.main {
-  width: 500px;
+main {
+  text-align: center;
 }
-section {
-  padding: 40px 20px;
-}
+
 .guest {
+  padding: 0 20px;
+  text-align: center;
+
+  &:nth-child(odd){
+    background-color: $dark-red;
+  }
+
   &__img {
     &-container {
-      text-align: right;
+      margin: 50px 0;
+      @media (min-width: 550px) {
+        text-align: right;
+        margin: 100px 0;
+      }
     }
     border: 3px solid $beige;
+    max-width: 100%;
+  }
+  &__bio {
+    text-align: center;
+    margin-bottom: 50px;
+    @media (min-width: 550px) {
+      text-align: left;
+      margin: 100px 0;
+    }
+  }
+}
+
+.contact {
+  @extend .guest;
+  background-color: $beige;
+  padding-top: 50px;
+  padding-bottom: 50px
+}
+
+footer {
+  text-align: center;
+}
+
+$icons: facebook, instagram, email;
+.icon {
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 20px 10px;
+  @each $icon in $icons {
+    &-#{$icon} {
+      background-image: url('/images/#{$icon}-icon.png');
+      &:hover {
+        background-image: url('/images/#{$icon}-icon-hover.png');
+      }
+    }
+  }
+}
+
+form {
+  font-size: 0;
+
+  input,
+  button {
+    border: 1px solid $black;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 15px;
+    font-family: $brandon;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: .1em;
+    margin: 10px 5px;
+    text-transform: uppercase;
+    width: 150px;
+
+    @media (min-width: 550px) {
+      margin: {
+        bottom: 10px;
+        left: 10px;
+        right: 0;
+        top: 10px;
+      }
+    }
+  }
+  button {
+    background-color: $black;
+    color: $beige;
+    @media (min-width: 550px) {
+      margin: {
+        bottom: 10px;
+        right: 20px;
+      }
+    }
   }
 }

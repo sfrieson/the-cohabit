@@ -78,7 +78,10 @@ h3,
   text-align: center;
   display: inline-block;
   padding: 8px 12px;
-  margin: 20px auto; }
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px; }
 
 .name {
   color: #cd4837;
@@ -122,12 +125,24 @@ hr {
   border: 2px solid #cd4837;
   width: 75px; }
 
+.space-below {
+  margin-bottom: 300px; }
+
 .header {
-  margin-top: 100px;
-  margin-left: 100px;
-  margin-right: 100px;
-  margin-bottom: 30px;
+  background-image: url("https://static.wixstatic.com/media/78559a_edf9b500d6684619bea78c1931aa9812.png/v1/fill/w_1178,h_593,al_c,usm_0.66_1.00_0.01/78559a_edf9b500d6684619bea78c1931aa9812.png"), url("http://www.wzchutian.com/wp-content/uploads/w/w-stunning-vinyl-wood-effect-planks-wood-planks-tile-floor-wood-planks-texture-free-wood-planks-tile-wood-roof-planks-wood-roasting-planks-wood-planks-for-raised-beds-wood-grilling-planks-reci.jpg");
+  background-position: bottom center, top left;
+  background-repeat: no-repeat, repeat;
+  background-size: auto, cover;
+  box-sizing: border-box;
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
   text-align: center; }
+  @media (min-width: 550px) {
+    .header {
+      padding-left: 100px;
+      padding-right: 100px; } }
   .header__logo {
     display: block;
     margin: 0 auto;
@@ -138,22 +153,27 @@ hr {
   .header__tag-line {
     color: #ebe8df; }
   .header__quote {
+    background-color: rgba(51, 51, 51, 0.5);
+    display: inline-block;
     font-family: Times, Times New Roman, serif;
     font-size: 16px;
     font-style: italic;
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+    padding: 3px 8px; }
+  .header__quote-attr {
+    text-shadow: 0 0 15px #333333; }
 
 .player {
-  align-items: center;
   background-color: #cd4837;
-  columns: 1;
-  display: flex;
+  box-sizing: border-box;
   font-size: 12px;
-  height: 100px;
+  min-height: 100px;
+  padding: 50px 10px;
   text-align: center;
   width: 100vw; }
   .player * {
-    display: inline-block; }
+    display: inline-block;
+    vertical-align: middle; }
   .player__btn {
     background-repeat: no-repeat;
     background-size: contain;
@@ -162,7 +182,14 @@ hr {
     height: 50px;
     width: 50px; }
     .player__btn--play {
-      background-image: url("/images/play-icon.png"); }
+      background-image: url("/images/play-icon.png");
+      margin-left: 20px;
+      margin-right: 0;
+      float: left; }
+      @media (min-width: 600px) {
+        .player__btn--play {
+          float: none;
+          margin: 0; } }
     .player__btn--pause {
       background-image: url("/images/play-icon.png"); }
   .player__title {
@@ -174,7 +201,8 @@ hr {
     -webkit-appearance: none;
     appearance: none;
     padding-top: 6px;
-    margin-left: 50px; }
+    margin-left: 50px;
+    width: 200px; }
     .player__progress::-webkit-progress-bar {
       height: 1px;
       background-color: #993629; }
@@ -190,17 +218,90 @@ hr {
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
-    margin-left: 50px;
+    margin-left: 10px;
     height: 20px;
-    width: 30px; }
+    width: 20px; }
 
-.main {
-  width: 500px; }
+main {
+  text-align: center; }
 
-section {
-  padding: 40px 20px; }
+.guest, .contact {
+  padding: 0 20px;
+  text-align: center; }
+  .guest:nth-child(odd), .contact:nth-child(odd) {
+    background-color: #993629; }
+  .guest__img {
+    border: 3px solid #ebe8df;
+    max-width: 100%; }
+    .guest__img-container {
+      margin: 50px 0; }
+      @media (min-width: 550px) {
+        .guest__img-container {
+          text-align: right;
+          margin: 100px 0; } }
+  .guest__bio {
+    text-align: center;
+    margin-bottom: 50px; }
+    @media (min-width: 550px) {
+      .guest__bio {
+        text-align: left;
+        margin: 100px 0; } }
 
-.guest__img {
-  border: 3px solid #ebe8df; }
-  .guest__img-container {
-    text-align: right; }
+.contact {
+  background-color: #ebe8df;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+footer {
+  text-align: center; }
+
+.icon {
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 20px 10px; }
+  .icon-facebook {
+    background-image: url("/images/facebook-icon.png"); }
+    .icon-facebook:hover {
+      background-image: url("/images/facebook-icon-hover.png"); }
+  .icon-instagram {
+    background-image: url("/images/instagram-icon.png"); }
+    .icon-instagram:hover {
+      background-image: url("/images/instagram-icon-hover.png"); }
+  .icon-email {
+    background-image: url("/images/email-icon.png"); }
+    .icon-email:hover {
+      background-image: url("/images/email-icon-hover.png"); }
+
+form {
+  font-size: 0; }
+  form input,
+  form button {
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 15px;
+    font-family: "brandon-grotesque", Futura, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: .1em;
+    margin: 10px 5px;
+    text-transform: uppercase;
+    width: 150px; }
+    @media (min-width: 550px) {
+      form input,
+      form button {
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 0;
+        margin-top: 10px; } }
+  form button {
+    background-color: #333333;
+    color: #ebe8df; }
+    @media (min-width: 550px) {
+      form button {
+        margin-bottom: 10px;
+        margin-right: 20px; } }
