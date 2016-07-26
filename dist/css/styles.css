@@ -1,0 +1,307 @@
+@charset "UTF-8";
+/* Grid (Mobile first)
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.row:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.column {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
+
+/* For devices larger than 550px */
+@media (min-width: 550px) {
+  .column {
+    padding-left: 30px; }
+  .column:first-child {
+    padding-left: 0; }
+  /* Semantic columns */
+  .one-quarter.column {
+    width: 25%; }
+  .one-third.column {
+    width: 33.33333%; }
+  .one-half.column {
+    width: 50%; }
+  .two-thirds.column {
+    width: 66.66667%; }
+  .three-quarters.column {
+    width: 75%; }
+  /* Semantic offsets */
+  .offset-one-quarter.column {
+    margin-left: 25%; }
+  .offset-one-third.column {
+    margin-left: 33.33333%; }
+  .offset-one-half.column {
+    margin-left: 50%; }
+  .offset-two-thirds.column {
+    margin-left: 66.66667%; }
+  .offset-three-quarters.column {
+    margin-left: 75%; } }
+
+body {
+  background-color: #333333;
+  color: #ebe8df;
+  font-family: "freight-sans-pro", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.5em;
+  margin: 0; }
+
+h1,
+.h1,
+.header__tag-line {
+  font-family: "bebas-neue", Impact, sans-serif;
+  font-size: 1.333em;
+  letter-spacing: .1em;
+  line-height: 1.4em; }
+
+h2,
+.h2,
+.name {
+  color: #cd4837;
+  font-family: "brandon-grotesque", Futura, sans-serif;
+  font-size: .8333em;
+  letter-spacing: .1em;
+  text-transform: uppercase; }
+
+h3,
+.h3,
+.header__quote-attr,
+.player__title {
+  font-family: "brandon-grotesque", Futura, sans-serif;
+  font-size: .4167em;
+  letter-spacing: .1em;
+  text-transform: uppercase; }
+
+.section-heading {
+  text-align: center;
+  display: inline-block;
+  padding: 8px 12px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px; }
+
+.name {
+  color: #cd4837;
+  background-color: #ebe8df;
+  display: inline;
+  padding: 2px 5px;
+  margin-right: .25em;
+  text-transform: uppercase; }
+
+.center {
+  text-align: center; }
+
+.red {
+  background-color: #cd4837; }
+
+.red-font {
+  color: #cd4837; }
+
+.dark-red {
+  background-color: #993629; }
+
+.dark-red-font {
+  color: #993629; }
+
+.beige {
+  background-color: #ebe8df; }
+
+.beige-font {
+  color: #ebe8df; }
+
+.black {
+  background-color: #333333; }
+
+.black-font {
+  color: #333333; }
+
+a {
+  color: inherit; }
+
+hr {
+  border: 2px solid #cd4837;
+  width: 75px; }
+
+.space-below {
+  margin-bottom: 300px; }
+
+.header {
+  background-image: url("https://static.wixstatic.com/media/78559a_edf9b500d6684619bea78c1931aa9812.png/v1/fill/w_1178,h_593,al_c,usm_0.66_1.00_0.01/78559a_edf9b500d6684619bea78c1931aa9812.png"), url("http://www.wzchutian.com/wp-content/uploads/w/w-stunning-vinyl-wood-effect-planks-wood-planks-tile-floor-wood-planks-texture-free-wood-planks-tile-wood-roof-planks-wood-roasting-planks-wood-planks-for-raised-beds-wood-grilling-planks-reci.jpg");
+  background-position: bottom center, top left;
+  background-repeat: no-repeat, repeat;
+  background-size: auto, cover;
+  box-sizing: border-box;
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  text-align: center; }
+  @media (min-width: 550px) {
+    .header {
+      padding-left: 100px;
+      padding-right: 100px; } }
+  .header__logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 375px;
+    width: 85%; }
+    .header__logo img {
+      width: 100%; }
+  .header__tag-line {
+    color: #ebe8df; }
+  .header__quote {
+    background-color: rgba(51, 51, 51, 0.5);
+    display: inline-block;
+    font-family: Times, Times New Roman, serif;
+    font-size: 16px;
+    font-style: italic;
+    margin-bottom: 1em;
+    padding: 3px 8px; }
+  .header__quote-attr {
+    text-shadow: 0 0 15px #333333; }
+
+.player {
+  background-color: #cd4837;
+  box-sizing: border-box;
+  font-size: 12px;
+  min-height: 100px;
+  padding: 50px 10px;
+  text-align: center;
+  width: 100vw; }
+  .player * {
+    display: inline-block;
+    vertical-align: middle; }
+  .player__btn {
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    margin-left: 50px;
+    height: 50px;
+    width: 50px; }
+    .player__btn--play {
+      background-image: url("/the-cohabit/images/play-icon.png");
+      margin-left: 20px;
+      margin-right: 0;
+      float: left; }
+      @media (min-width: 600px) {
+        .player__btn--play {
+          float: none;
+          margin: 0; } }
+    .player__btn--pause {
+      background-image: url("/the-cohabit/images/play-icon.png"); }
+  .player__title {
+    font-size: inherit;
+    margin-left: 50px; }
+  .player__time {
+    margin-left: 50px; }
+  .player__progress {
+    -webkit-appearance: none;
+    appearance: none;
+    padding-top: 6px;
+    margin-left: 50px;
+    width: 200px; }
+    .player__progress::-webkit-progress-bar {
+      height: 1px;
+      background-color: #993629; }
+    .player__progress::-webkit-progress-value {
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.2);
+      height: 7px;
+      position: relative;
+      top: -3px; }
+  .player__logo {
+    background-image: url("/the-cohabit/images/logo-soundcloud.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+    margin-left: 10px;
+    height: 20px;
+    width: 20px; }
+
+main {
+  text-align: center; }
+
+.guest, .contact {
+  padding: 0 20px;
+  text-align: center; }
+  .guest:nth-child(odd), .contact:nth-child(odd) {
+    background-color: #993629; }
+  .guest__img {
+    border: 3px solid #ebe8df;
+    max-width: 100%; }
+    .guest__img-container {
+      margin: 50px 0; }
+      @media (min-width: 550px) {
+        .guest__img-container {
+          text-align: right;
+          margin: 100px 0; } }
+  .guest__bio {
+    text-align: center;
+    margin-bottom: 50px; }
+    @media (min-width: 550px) {
+      .guest__bio {
+        text-align: left;
+        margin: 100px 0; } }
+
+.contact {
+  background-color: #ebe8df;
+  padding-top: 50px;
+  padding-bottom: 50px; }
+
+footer {
+  text-align: center; }
+
+.icon {
+  background-size: cover;
+  background-repeat: no-repeat;
+  content: "";
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 20px 10px; }
+  .icon-facebook {
+    background-image: url("/the-cohabit/images/facebook-icon.png"); }
+    .icon-facebook:hover {
+      background-image: url("/the-cohabit/images/facebook-icon-hover.png"); }
+  .icon-instagram {
+    background-image: url("/the-cohabit/images/instagram-icon.png"); }
+    .icon-instagram:hover {
+      background-image: url("/the-cohabit/images/instagram-icon-hover.png"); }
+  .icon-email {
+    background-image: url("/the-cohabit/images/email-icon.png"); }
+    .icon-email:hover {
+      background-image: url("/the-cohabit/images/email-icon-hover.png"); }
+
+form {
+  font-size: 0; }
+  form input,
+  form button {
+    border: 1px solid #333333;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 15px;
+    font-family: "brandon-grotesque", Futura, sans-serif;
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: .1em;
+    margin: 10px 5px;
+    text-transform: uppercase;
+    width: 150px; }
+    @media (min-width: 550px) {
+      form input,
+      form button {
+        margin-bottom: 10px;
+        margin-left: 10px;
+        margin-right: 0;
+        margin-top: 10px; } }
+  form button {
+    background-color: #333333;
+    color: #ebe8df; }
+    @media (min-width: 550px) {
+      form button {
+        margin-bottom: 10px;
+        margin-right: 20px; } }
