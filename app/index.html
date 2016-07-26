@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>The Cohabit</title>
   <link rel="stylesheet" href="/css/style.css">
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
   <header class="header">
@@ -19,12 +19,13 @@
     <div class="header__quote">&ldquo;This intimate and moving series takes podcasts to a new level. Heartbreaking and beautiful.&rdquo;</div>
     <div class="header__quote-attr">- Jason Russell, Director of Kony 2012</div>
   </header>
-  <div class="player">
-    <figure class="player__btn player__btn--play"> </figure>
-    <span class="player__title">Podcast Teaser</span>
-    <div class="player__time"><span id="min">2</span>:<span id="sec">10</span></div>
-    <progress class="player__progress" value="50" max="100">50%</progress>
-    <span class="player__logo"></span>
+  <div id="player" class="player" style="display:none">
+    <figure id="playerBtn" class="player__btn player__btn--play"> </figure>
+    <span id="playerName" class="player__title">Podcast Teaser</span>
+    <div id="playerTime" class="player__time"><span id="min">2</span>:<span id="sec">10</span></div>
+    <progress id="playerProgress" class="player__progress" value="50" max="100">50%</progress>
+    <a id="playerLogo" href=""><span  class="player__logo"></span></a>
+    <div id="playerFrame" style="height:20px; width: 20px; margin: 0 auto; overflow: hidden;"></div>
   </div>
   <main>
     <h2 class="red beige-font section-heading">Some of Our Guests</h2>
@@ -73,5 +74,8 @@
     <a href="mailto:hello@prismaticradio.com"><span class="icon icon-email"></span></a>
   </footer>
   <script src="/js/typekit.js" charset="utf-8"></script>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <script async src="/js/scripts.js" charset="utf-8"></script>
 </body>
 </html>
