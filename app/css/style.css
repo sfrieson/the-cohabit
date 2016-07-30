@@ -175,23 +175,21 @@ hr {
     display: inline-block;
     vertical-align: middle; }
   .player__btn {
+    background-image: url("/images/play-icon.png");
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
-    margin-left: 50px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 0;
     height: 50px;
     width: 50px; }
-    .player__btn--play {
-      background-image: url("/images/play-icon.png");
-      margin-left: 20px;
-      margin-right: 0;
-      float: left; }
-      @media (min-width: 600px) {
-        .player__btn--play {
-          float: none;
-          margin: 0; } }
-    .player__btn--pause {
-      background-image: url("/images/play-icon.png"); }
+    @media (min-width: 600px) {
+      .player__btn {
+        float: none;
+        margin: 0; } }
+    .player__btn--playing {
+      background-image: url("/images/pause-icon.png"); }
   .player__title {
     font-size: inherit;
     margin-left: 50px; }

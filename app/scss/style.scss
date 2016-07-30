@@ -143,25 +143,24 @@ $player-margin: 50px;
   }
 
   &__btn {
+    background-image: url('/images/play-icon.png');
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
-    margin-left: $player-margin;
+    float: left;
+    margin: {
+      left: 20px;
+      right: 0;
+    }
     height: 50px;
     width: 50px;
 
-    &--play {
-      background-image: url('/images/play-icon.png');
-      margin-left: 20px;
-      margin-right: 0;
-      float: left;
-      @media (min-width: 600px) {
-        float: none;
-        margin: 0;
-      }
+    @media (min-width: 600px) {
+      float: none;
+      margin: 0;
     }
-    &--pause {
-      background-image: url('/images/play-icon.png');
+    &--playing {
+      background-image: url('/images/pause-icon.png');
     }
   }
 
