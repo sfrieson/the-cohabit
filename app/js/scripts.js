@@ -37,8 +37,8 @@ function Player (player, widget) {
 
   // Widget Methods
   this.widget = widget;
-  this.bind = widget.bind; // (eventName, listener)
-  this.unbind = widget.unbind; // (eventName)
+  this.bind = widget.bind.bind(widget); // (eventName, listener)
+  this.unbind = widget.unbind.bind(widget); // (eventName)
   this.load = widget.load.bind(widget); // (url, options)
   this.play = widget.play.bind(widget);
   this.pause = widget.pause.bind(widget);
@@ -83,10 +83,26 @@ Player.prototype.mapControls = function () {
 
 Player.prototype.playPause = function () {
   // Toggle play/pause
-  console.log('playPause result:', this.toggle());
+  this.isPaused(function (isPaused) {
+    if (isPaused) {
+      this.play();
+      display.playPause.addClass('player__btn--playing');
+      this.bind(Player.events.playProgress, function (data) {
+        this.setProgress(data.currentPosition)
+        this.setTime(Math.floor(this.duration * data.relativePosition / 1000));
+      }.bind(this));
+    } else {
+      this.pause();
+      display.playPause.removeClass('player__btn--playing');
+      this.widget.unbind(Player.events.playProgress);
+    }
+  }.bind(this))
 
-  // Switch button image
-  display.playPause.toggleClass('player__btn--playing');
+};
+
+Player.prototype.setProgress = function (position, duration) {
+  display.progress.attr('value', position);
+  if(duration) display.progress.attr('max', duration);
 };
 
 Player.prototype.setText = function () {
@@ -95,13 +111,16 @@ Player.prototype.setText = function () {
   $('#playerLogo').attr('href', this.links.artist);
 
   this.getDuration(function (d) {
-    console.log(d);
+    that.duration = d;
     that.setTime(Math.floor(d/1000));
+    that.setProgress(0, d);
   });
 };
 
 Player.prototype.setTime = function (seconds) {
   var minutes = Math.floor(seconds / 60);
+  seconds = seconds % 60;
+  if (seconds < 10) seconds = "0" + seconds;
   display.time.min.html(minutes);
-  display.time.sec.html(seconds % 60);
+  display.time.sec.html(seconds);
 };
