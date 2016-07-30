@@ -112,6 +112,7 @@ hr {
     @extend .h1;
     color: $beige;
   }
+
   &__quote {
     background-color: rgba($black, .5);
     display: inline-block;
@@ -211,13 +212,40 @@ main {
 }
 
 .guest {
+  background-position: center;
+  background-size:cover;
+  // overflow: hidden;
   padding: 0 20px;
+  position: relative;
   text-align: center;
 
-  &:nth-child(odd){
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: .5;
+    width: 100%;
+    z-index: 0;
+  }
+  &:nth-child(odd):after {
     background-color: $dark-red;
   }
-
+  &:nth-child(even):after {
+    background-color: $black;
+  }
+  @for $i from 1 through 9 {
+    &:nth-child(#{$i}) {
+      background-image: url('/images/bg#{$i}.jpg');
+    }
+  }
+  &__info {
+    @extend .row;
+    position: relative;
+    z-index: 1;
+  }
   &__img {
     &-container {
       margin: 50px 0;
@@ -240,10 +268,14 @@ main {
 }
 
 .contact {
-  @extend .guest;
+  padding: {
+    bottom: 50px;
+    left: 20px;
+    right: 20px;
+    top: 50px
+  }
+  text-align: center;
   background-color: $beige;
-  padding-top: 50px;
-  padding-bottom: 50px
 }
 
 footer {
