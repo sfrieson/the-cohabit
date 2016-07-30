@@ -72,13 +72,10 @@ Player.events = {
 };
 
 Player.prototype.mapControls = function () {
-  console.log(display.playPause);
-  // Widget events
-  this.bind(Player.events.play, function () {
-    console.log('PLAYING!');
-  });
   var that = this;
-  display.playPause.click(function () { console.log('pressed play'); that.playPause(); });
+  this.bind(Player.events.play, function () { that.setState('playing'); });
+  this.bind(Player.events.pause, function () { that.setState('paused'); });
+  display.playPause.click(function () { that.playPause(); });
 };
 
 Player.prototype.playPause = function () {
@@ -86,14 +83,14 @@ Player.prototype.playPause = function () {
   this.isPaused(function (isPaused) {
     if (isPaused) {
       this.play();
-      display.playPause.addClass('player__btn--playing');
+      this.setState('playing')
       this.bind(Player.events.playProgress, function (data) {
-        this.setProgress(data.currentPosition)
+        this.setProgress(data.currentPosition);
         this.setTime(Math.floor(this.duration * data.relativePosition / 1000));
       }.bind(this));
     } else {
       this.pause();
-      display.playPause.removeClass('player__btn--playing');
+      this.setState('paused')
       this.widget.unbind(Player.events.playProgress);
     }
   }.bind(this))
@@ -115,6 +112,15 @@ Player.prototype.setText = function () {
     that.setTime(Math.floor(d/1000));
     that.setProgress(0, d);
   });
+};
+
+Player.prototype.setState = function (state) {
+  if(state === "playing") {
+    display.playPause.addClass('player__btn--playing');
+  }
+  if(state === "paused") {
+    display.playPause.removeClass('player__btn--playing');
+  }
 };
 
 Player.prototype.setTime = function (seconds) {

@@ -147,6 +147,7 @@ $player-margin: 50px;
     background-image: url('/images/play-icon.png');
     background-repeat: no-repeat;
     background-size: contain;
+    cursor: pointer;
     display: inline-block;
     float: left;
     margin: {
@@ -165,6 +166,11 @@ $player-margin: 50px;
     }
   }
 
+  &__frame {
+    position:absolute;
+    left: 100%;
+  }
+
   &__title {
     @extend .h3;
     font-size: inherit;
@@ -173,6 +179,8 @@ $player-margin: 50px;
 
   &__time {
     margin-left: $player-margin;
+    text-align: center;
+    width: 8ch;
   }
 
   &__progress {

@@ -178,6 +178,7 @@ hr {
     background-image: url("/images/play-icon.png");
     background-repeat: no-repeat;
     background-size: contain;
+    cursor: pointer;
     display: inline-block;
     float: left;
     margin-left: 20px;
@@ -190,11 +191,16 @@ hr {
         margin: 0; } }
     .player__btn--playing {
       background-image: url("/images/pause-icon.png"); }
+  .player__frame {
+    position: absolute;
+    left: 100%; }
   .player__title {
     font-size: inherit;
     margin-left: 50px; }
   .player__time {
-    margin-left: 50px; }
+    margin-left: 50px;
+    text-align: center;
+    width: 8ch; }
   .player__progress {
     -webkit-appearance: none;
     appearance: none;
