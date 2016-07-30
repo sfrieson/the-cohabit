@@ -13,18 +13,19 @@ var display = {
 
 SC.oEmbed('https://soundcloud.com/prismatic-radio/the-cohabit-series-teaser', {element: playerContainer[0]})
 .then(function (scPlayer) {
-  console.log(scPlayer);
   // Grab widget controls
   $('iframe').load(function () {
     $('#player').fadeIn();
     var player = new Player(scPlayer, SC.Widget(this));
     // Show custom widget buttons, and map the functionality
     player.mapControls();
+    player.startListening();
     player.setText();
   });
 });
 
 function Player (player, widget) {
+
   // Loaded info
   this.title = player.title.replace('by Prismatic Radio', '');
   this.artist = player.author_name;
@@ -70,11 +71,15 @@ Player.events = {
   ready: SC.Widget.Events.READY,
   seek: SC.Widget.Events.SEEK
 };
-
-Player.prototype.mapControls = function () {
+Player.prototype.startListening = function () {
+  console.log("startListening");
   var that = this;
   this.bind(Player.events.play, function () { that.setState('playing'); });
   this.bind(Player.events.pause, function () { that.setState('paused'); });
+}
+Player.prototype.mapControls = function () {
+  var that = this;
+
   display.playPause.click(function () { that.playPause(); });
 };
 

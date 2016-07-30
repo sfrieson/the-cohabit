@@ -130,13 +130,23 @@ hr {
 
 $player-margin: 50px;
 .player {
-  background-color: $red;
-  box-sizing: border-box;
-  font-size: 12px;
-  min-height: 100px;
-  padding: 50px 10px;
-  text-align: center;
-  width: 100vw;
+  &-container{
+    background-color: $red;
+    box-sizing: border-box;
+    font-size: 12px;
+    min-height: 150px;
+    padding: 50px 10px;
+    text-align: center;
+    width: 100vw;
+  }
+
+  @media (min-width: 700px) {
+    width: 80%;
+    margin: 0 auto;
+    .player__progress {
+      width: calc(100% - 450px);
+    }
+  }
 
   * {
     display: inline-block;
@@ -238,11 +248,25 @@ main {
     width: 100%;
     z-index: 0;
   }
-  &:nth-child(odd):after {
-    background-color: $dark-red;
+  &:nth-child(odd) {
+    &:after {
+      background-color: $dark-red;
+    }
+    @media (min-width: 550px) {
+      .guest__img {
+        transform: rotate(-3deg);
+      }
+    }
   }
-  &:nth-child(even):after {
-    background-color: $black;
+  &:nth-child(even) {
+    &:after {
+      background-color: $black;
+    }
+    @media (min-width: 550px) {
+      .guest__img {
+        transform: rotate(3deg);
+      }
+    }
   }
   @for $i from 1 through 9 {
     &:nth-child(#{$i}) {
