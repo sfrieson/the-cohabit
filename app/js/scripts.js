@@ -25,7 +25,6 @@ SC.oEmbed('https://soundcloud.com/prismatic-radio/the-cohabit-series-teaser', {e
 });
 
 function Player (player, widget) {
-
   // Loaded info
   this.title = player.title.replace('by Prismatic Radio', '');
   this.artist = player.author_name;
@@ -72,14 +71,16 @@ Player.events = {
   seek: SC.Widget.Events.SEEK
 };
 Player.prototype.startListening = function () {
-  console.log("startListening");
+  console.log('startListening');
   var that = this;
   this.bind(Player.events.play, function () { that.setState('playing'); });
   this.bind(Player.events.pause, function () { that.setState('paused'); });
-}
+};
 Player.prototype.mapControls = function () {
   var that = this;
-
+  display.progress.click(function (e) {
+    that.scrub(e.offsetX / display.progress.width());
+  });
   display.playPause.click(function () { that.playPause(); });
 };
 
@@ -88,23 +89,22 @@ Player.prototype.playPause = function () {
   this.isPaused(function (isPaused) {
     if (isPaused) {
       this.play();
-      this.setState('playing')
+      this.setState('playing');
       this.bind(Player.events.playProgress, function (data) {
         this.setProgress(data.currentPosition);
         this.setTime(Math.floor(this.duration * data.relativePosition / 1000));
       }.bind(this));
     } else {
       this.pause();
-      this.setState('paused')
+      this.setState('paused');
       this.widget.unbind(Player.events.playProgress);
     }
-  }.bind(this))
-
+  }.bind(this));
 };
 
 Player.prototype.setProgress = function (position, duration) {
   display.progress.attr('value', position);
-  if(duration) display.progress.attr('max', duration);
+  if (duration) display.progress.attr('max', duration);
 };
 
 Player.prototype.setText = function () {
@@ -114,16 +114,16 @@ Player.prototype.setText = function () {
 
   this.getDuration(function (d) {
     that.duration = d;
-    that.setTime(Math.floor(d/1000));
+    that.setTime(Math.floor(d / 1000));
     that.setProgress(0, d);
   });
 };
 
 Player.prototype.setState = function (state) {
-  if(state === "playing") {
+  if (state === 'playing') {
     display.playPause.addClass('player__btn--playing');
   }
-  if(state === "paused") {
+  if (state === 'paused') {
     display.playPause.removeClass('player__btn--playing');
   }
 };
@@ -131,7 +131,12 @@ Player.prototype.setState = function (state) {
 Player.prototype.setTime = function (seconds) {
   var minutes = Math.floor(seconds / 60);
   seconds = seconds % 60;
-  if (seconds < 10) seconds = "0" + seconds;
+  if (seconds < 10) seconds = '0' + seconds;
   display.time.min.html(minutes);
   display.time.sec.html(seconds);
+};
+
+Player.prototype.scrub = function (percent) {
+  var milliseconds = percent * this.duration;
+  this.setProgress(milliseconds);
 };
