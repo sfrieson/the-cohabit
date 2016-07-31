@@ -77,7 +77,7 @@ hr {
   margin-bottom: 300px;
 }
 .header {
-  background-image: url('https://static.wixstatic.com/media/78559a_edf9b500d6684619bea78c1931aa9812.png/v1/fill/w_1178,h_593,al_c,usm_0.66_1.00_0.01/78559a_edf9b500d6684619bea78c1931aa9812.png'), url('http://www.wzchutian.com/wp-content/uploads/w/w-stunning-vinyl-wood-effect-planks-wood-planks-tile-floor-wood-planks-texture-free-wood-planks-tile-wood-roof-planks-wood-roasting-planks-wood-planks-for-raised-beds-wood-grilling-planks-reci.jpg');
+  // background-image: url('https://static.wixstatic.com/media/78559a_edf9b500d6684619bea78c1931aa9812.png/v1/fill/w_1178,h_593,al_c,usm_0.66_1.00_0.01/78559a_edf9b500d6684619bea78c1931aa9812.png'), url('http://www.wzchutian.com/wp-content/uploads/w/w-stunning-vinyl-wood-effect-planks-wood-planks-tile-floor-wood-planks-texture-free-wood-planks-tile-wood-roof-planks-wood-roasting-planks-wood-planks-for-raised-beds-wood-grilling-planks-reci.jpg');
   background-position: bottom center, top left;
   background-repeat: no-repeat, repeat;
   background-size: auto, cover;
@@ -177,8 +177,7 @@ $player-margin: 50px;
   }
 
   &__frame {
-    position:absolute;
-    left: 100%;
+    display: none;
   }
 
   &__title {
@@ -193,26 +192,26 @@ $player-margin: 50px;
     width: 8ch;
   }
 
-  &__progress {
-    -webkit-appearance: none;
-    appearance: none;
-    padding-top: 6px;
-    margin-left: $player-margin;
-    width: 200px;
+    &__progress {
+      -webkit-appearance: none;
+      appearance: none;
+      padding-top: 6px;
+      margin-left: $player-margin;
+      width: 200px;
 
-    &::-webkit-progress-bar {
-      height: 1px;
-      background-color: $dark-red;
+      &::-webkit-progress-bar {
+        height: 1px;
+        background-color: $dark-red;
 
-    }
-    &::-webkit-progress-value {
-      background-color: #fff;
-      border-radius: 3px;
-      box-shadow: 0 0 5px 2px rgba(255,255,255, .2);
-      height: 7px;
-      position: relative;
-      top: -3px;
-    }
+      }
+      &::-webkit-progress-value {
+        background-color: #fff;
+        border-radius: 3px;
+        box-shadow: 0 0 8px 2px rgba(255,255,255, .4);
+        height: 7px;
+        position: relative;
+        top: -3px;
+      }
   }
 
   &__logo {
