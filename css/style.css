@@ -54,7 +54,7 @@ body {
   line-height: 1.5em;
   margin: 0; }
 
-h1, h2, h3, .h1, .header__tag-line, .header__quote-attr, .h2, .name, .h3, .player__title {
+h1, h2, h3, .h1, .header__tag-line, .header__quote-attr, .h2, .name, .h3, .header__coming-soon, .player__title {
   font-weight: normal; }
 
 h1,
@@ -77,6 +77,7 @@ h2,
 
 h3,
 .h3,
+.header__coming-soon,
 .player__title {
   font-family: "brandon-grotesque", Futura, sans-serif;
   font-size: .4167em;
@@ -161,7 +162,7 @@ hr {
     .header__logo img {
       width: 100%; }
   .header__tag-line {
-    color: #f1e0bc;
+    color: #fff2d2;
     letter-spacing: .46em;
     text-shadow: 0 0 15px #333333;
     margin-bottom: 0;
@@ -191,6 +192,9 @@ hr {
     line-height: 1em;
     margin: 0;
     opacity: .53; }
+  .header__coming-soon {
+    font-size: .8em;
+    line-height: 1em; }
 
 .player {
   background-color: #cd4837;
