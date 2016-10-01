@@ -9,6 +9,10 @@
     checkStatus();
     $(window).scroll(checkStatus)
     $(window).resize(function () { playerHeight = null; })
+    var $modal = $('#modal');
+    setTimeout(function () {
+      $modal.modal({fadeDuration: 100});
+    }, 3000);
   });
 
   function checkStatus () {
