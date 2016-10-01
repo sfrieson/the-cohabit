@@ -432,11 +432,12 @@ form {
     height: 50px;
     padding: 15px;
     font-family: $brandon;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: .1em;
     margin: 10px 5px;
+    text-align: center;
     text-transform: uppercase;
-    width: 150px;
+    width: 300px;
 
     @media (min-width: 550px) {
       margin: {
@@ -452,6 +453,7 @@ form {
     background-color: $red;
     color: $beige;
     font-size: 12px;
+    width: 150px;
     @media (min-width: 550px) {
       margin: {
         bottom: 10px;

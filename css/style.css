@@ -407,11 +407,12 @@ form {
     height: 50px;
     padding: 15px;
     font-family: "brandon-grotesque", Futura, sans-serif;
-    font-size: 10px;
+    font-size: 12px;
     letter-spacing: .1em;
     margin: 10px 5px;
+    text-align: center;
     text-transform: uppercase;
-    width: 150px; }
+    width: 300px; }
     @media (min-width: 550px) {
       form input,
       form button {
@@ -423,7 +424,8 @@ form {
     border-color: #cd4837;
     background-color: #cd4837;
     color: #ebe8df;
-    font-size: 12px; }
+    font-size: 12px;
+    width: 150px; }
     @media (min-width: 550px) {
       form button {
         margin-bottom: 10px;
