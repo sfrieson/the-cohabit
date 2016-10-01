@@ -331,6 +331,8 @@ main {
     @media (min-width: 550px) {
       .guest-container:nth-child(even) .guest__img {
         transform: rotate(3deg); } }
+    .guest-container:last-child .guest__bio {
+      margin-bottom: 100px; }
   .guest__header {
     position: absolute;
     width: 100%;

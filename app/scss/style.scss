@@ -340,6 +340,11 @@ main {
         }
       }
     }
+    &:last-child {
+      .guest__bio {
+        margin-bottom: 100px;
+      }
+    }
   }
   &__header {
     position: absolute;
