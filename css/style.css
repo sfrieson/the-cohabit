@@ -54,13 +54,12 @@ body {
   line-height: 1.5em;
   margin: 0; }
 
-h1, h2, h3, .h1, .header__tag-line, .header__quote-attr, .h2, .name, .h3, .header__coming-soon, .player__title {
+h1, h2, h3, .h1, .header__tag-line, .h2, .name, .h3, .header__quote-attr, .header__coming-soon, .player__title {
   font-weight: normal; }
 
 h1,
 .h1,
-.header__tag-line,
-.header__quote-attr {
+.header__tag-line {
   font-family: "bebas-neue", Impact, sans-serif;
   font-size: 1.333em;
   letter-spacing: .1em;
@@ -77,6 +76,7 @@ h2,
 
 h3,
 .h3,
+.header__quote-attr,
 .header__coming-soon,
 .player__title {
   font-family: "brandon-grotesque", Futura, sans-serif;
@@ -85,17 +85,19 @@ h3,
   text-transform: uppercase; }
 
 .section-heading {
+  box-sizing: border-box;
   text-align: center;
   display: inline-block;
   padding: 8px 12px;
   margin-bottom: 20px;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 60px; }
+  margin-top: 120px; }
 
 .name {
   color: #cd4837;
   background-color: #ebe8df;
+  box-sizing: border-box;
   display: inline;
   padding: 2px 5px;
   margin-right: .25em;
@@ -134,10 +136,14 @@ a {
 hr {
   border: 1px solid rgba(205, 72, 55, 0.5);
   box-shadow: 0 0 3px rgba(205, 72, 55, 0.5);
+  box-sizing: border-box;
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 0;
   width: 110px; }
+
+.space-below {
+  margin-bottom: 300px; }
 
 .header {
   background-image: url("../images/the-cohabit-bg.jpg");
@@ -169,21 +175,15 @@ hr {
     margin-top: 0px;
     opacity: .85; }
   .header__quote {
+    background-color: rgba(51, 51, 51, 0.5);
+    box-sizing: border-box;
     display: inline-block;
-    font-family: "Optima", Optima, "Optima nova", Candara, Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-family: Times, Times New Roman, serif;
+    font-size: 16px;
     font-style: italic;
-    letter-spacing: .08em;
-    line-height: 1.2em;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding: 3px 8px;
-    text-shadow: 0 0 15px #333333; }
+    margin-bottom: 1em;
+    padding: 3px 8px; }
   .header__quote-attr {
-    font-size: 13px;
-    margin-top: 0;
-    letter-spacing: .12em;
-    opacity: .88;
     text-shadow: 0 0 15px #333333; }
   .header__prismatic img {
     margin-top: 20px;
@@ -209,8 +209,9 @@ hr {
     bottom: 0;
     z-index: 5; }
   .player-container {
+    box-sizing: border-box;
     position: relative;
-    width: 100vw; }
+    width: 100%; }
   @media (min-width: 700px) {
     .player {
       padding-left: 10%;
@@ -221,7 +222,7 @@ hr {
     display: inline-block;
     vertical-align: middle; }
   .player__btn {
-    background-image: url("../images/play-icon.png");
+    background-image: url("/images/play-icon.png");
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
@@ -236,7 +237,7 @@ hr {
         float: none;
         margin: 0; } }
     .player__btn--playing {
-      background-image: url("../images/pause-icon.png"); }
+      background-image: url("/images/pause-icon.png"); }
   .player__frame {
     display: none; }
   .player__title {
@@ -250,6 +251,7 @@ hr {
   .player__progress {
     -webkit-appearance: none;
     appearance: none;
+    box-sizing: border-box;
     padding-top: 6px;
     margin-left: 50px;
     width: 200px; }
@@ -264,7 +266,7 @@ hr {
       position: relative;
       top: -3px; }
   .player__logo {
-    background-image: url("../images/logo-soundcloud.svg");
+    background-image: url("/images/logo-soundcloud.svg");
     background-repeat: no-repeat;
     background-size: contain;
     display: inline-block;
@@ -276,6 +278,7 @@ main {
   text-align: center; }
 
 .guest {
+  box-sizing: border-box;
   padding-left: 10px;
   padding-right: 10px;
   position: relative;
@@ -285,7 +288,8 @@ main {
       padding-left: 100px;
       padding-right: 100px; } }
   .guest--extended {
-    padding-top: 100px; }
+    box-sizing: border-box;
+    padding-top: 140px; }
   .guest-container {
     background-position: center;
     background-size: cover;
@@ -299,24 +303,24 @@ main {
     @media (min-width: 550px) {
       .guest-container {
         background-attachment: fixed; } }
-    .guest-container:nth-child(1) {
-      background-image: url("../images/bg1.jpg"); }
     .guest-container:nth-child(2) {
-      background-image: url("../images/bg2.jpg"); }
+      background-image: url("/images/bg1.jpg"); }
     .guest-container:nth-child(3) {
-      background-image: url("../images/bg3.jpg"); }
+      background-image: url("/images/bg2.jpg"); }
     .guest-container:nth-child(4) {
-      background-image: url("../images/bg4.jpg"); }
+      background-image: url("/images/bg3.jpg"); }
     .guest-container:nth-child(5) {
-      background-image: url("../images/bg5.jpg"); }
+      background-image: url("/images/bg4.jpg"); }
     .guest-container:nth-child(6) {
-      background-image: url("../images/bg6.jpg"); }
+      background-image: url("/images/bg5.jpg"); }
     .guest-container:nth-child(7) {
-      background-image: url("../images/bg7.jpg"); }
+      background-image: url("/images/bg6.jpg"); }
     .guest-container:nth-child(8) {
-      background-image: url("../images/bg8.jpg"); }
+      background-image: url("/images/bg7.jpg"); }
     .guest-container:nth-child(9) {
-      background-image: url("../images/bg9.jpg"); }
+      background-image: url("/images/bg8.jpg"); }
+    .guest-container:nth-child(10) {
+      background-image: url("/images/bg9.jpg"); }
     .guest-container:nth-child(odd) .guest {
       background-color: rgba(113, 40, 30, 0.6); }
     @media (min-width: 550px) {
@@ -327,8 +331,6 @@ main {
     @media (min-width: 550px) {
       .guest-container:nth-child(even) .guest__img {
         transform: rotate(3deg); } }
-    .guest-container:last-child .guest {
-      padding-bottom: 50px; }
   .guest__header {
     position: absolute;
     width: 100%;
@@ -363,6 +365,13 @@ main {
   position: relative;
   text-align: center; }
 
+.about {
+  background-color: #ebe8df;
+  padding-bottom: 50px;
+  padding-left: 15vw;
+  padding-right: 15vw;
+  padding-top: 50px; }
+
 footer {
   text-align: center; }
 
@@ -375,17 +384,17 @@ footer {
   height: 35px;
   margin: 20px 10px; }
   .icon-facebook {
-    background-image: url("../images/facebook-icon.png"); }
+    background-image: url("/images/facebook-icon.png"); }
     .icon-facebook:hover {
-      background-image: url("../images/facebook-icon-hover.png"); }
+      background-image: url("/images/facebook-icon-hover.png"); }
   .icon-instagram {
-    background-image: url("../images/instagram-icon.png"); }
+    background-image: url("/images/instagram-icon.png"); }
     .icon-instagram:hover {
-      background-image: url("../images/instagram-icon-hover.png"); }
+      background-image: url("/images/instagram-icon-hover.png"); }
   .icon-email {
-    background-image: url("../images/email-icon.png"); }
+    background-image: url("/images/email-icon.png"); }
     .icon-email:hover {
-      background-image: url("../images/email-icon-hover.png"); }
+      background-image: url("/images/email-icon-hover.png"); }
 
 form {
   font-size: 0; }
@@ -431,9 +440,10 @@ form {
   transform: translateX(-50%);
   width: 150px;
   z-index: 4; }
-  .circle img {
-    width: 100%;
-    height: 100%; }
+
+.circle img {
+  width: 100%;
+  height: 100%; }
 
 .no-underline {
   text-decoration: none; }

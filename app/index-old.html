@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>The Cohabit</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__logo"><a href="http://thecohabit.com">
+      <img src="/images/cohabit-logo-paper.png" alt="The Cohabit">
+    </a></h1>
+    <h2 class="header__tag-line">What does it take to live together?</h2>
+    <hr>
+    <h3 class="space-below">A <a href="http://www.prismaticradio.com/">Prismatic Radio</a> Production</h3>
+    <div class="header__quote">&ldquo;This intimate and moving series takes podcasts to a new level. Heartbreaking and beautiful.&rdquo;</div>
+    <div class="header__quote-attr">- Jason Russell, Director of Kony 2012</div>
+  </header>
+  <div class="player-container">
+    <div id="player" class="player" style="display:none">
+      <figure id="playerBtn" class="player__btn"> </figure>
+      <span id="playerName" class="player__title">Podcast Teaser</span>
+      <div id="playerTime" class="player__time"><span id="min">2</span>:<span id="sec">10</span></div>
+      <progress id="playerProgress" class="player__progress" value="50" max="100">50%</progress>
+      <a id="playerLogo" href=""><span  class="player__logo"></span></a>
+    </div>
+    <div id="playerFrame" class="player__frame"></div>
+  </div>
+  <main>
+    <h2 class="red beige-font section-heading">Some of Our Guests</h2>
+    <section class="guest">
+      <div class="guest__info">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_b72ca81d8fa946759213017afedf0cad.jpg/v1/fill/w_330,h_227,al_c,q_80,usm_0.66_1.00_0.01/78559a_b72ca81d8fa946759213017afedf0cad.jpg" style="object-fit: cover;"></div>
+        <div class="two-thirds column guest__bio"><h3 class="name">Ann Friedman</h3>is an L.A. Based freelance journalist who writes about gender, politics, and culture. She is a columnist for New York Magazine, newsletter aficionado, and the co-host of the popular podcast Call Your Girlfriend that she hosts with her “long distance bestie” Aminatou Sow.</div>
+      </div>
+    </section>
+    <section class="guest">
+      <div class="guest__info">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_1726a8c7d8104b86ab2d7b60a5e42eb2.jpg/v1/fill/w_330,h_227,al_c,q_80,usm_0.66_1.00_0.01/78559a_1726a8c7d8104b86ab2d7b60a5e42eb2.jpg" style="object-fit: cover;"></div>
+        <div class="two-thirds column guest__bio"><h3 class="name">Dr. Elizabeth Pleck</h3> is a professor emerita of history at the University of Illinois at Urbana-Champaign. She is the author of Not Just Roommates: Cohabitation After the Sexual Revolution and specializes in the study of 20th century U.S. women’s history, history of women and gender.</div>
+      </div>
+    </section>
+    <section class="guest">
+      <div class="guest__info">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_77b18b96b76b4effaa6bc04f4ad8ad33.jpg/v1/fill/w_330,h_227,al_c,q_80,usm_0.66_1.00_0.01/78559a_77b18b96b76b4effaa6bc04f4ad8ad33.jpg" style="object-fit: cover;"></div>
+        <div class="two-thirds column guest__bio"><h3 class="name">Dr. Galeana Rhoades</h3> is a research associate professor of psychology at the University of Denver. Her research focuses on cohabitating couples and romantic relationship development. She also runs her own private practice, specializing in couples and families.</div>
+      </div>
+    </section>
+    <section class="guest">
+      <div class="guest__info">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_f2d8e346a23d40a081bf2b5da4861042.png/v1/fill/w_330,h_227,al_c,lg_1/78559a_f2d8e346a23d40a081bf2b5da4861042.png" style="object-fit: cover;" ></div>
+        <div class="two-thirds column guest__bio"><h3 class="name">Lillian Faderman</h3> is an internationally recognized expert on lesbian and LGBT history and literature. She is the author of The Gay Revolution which was named a New York Times and Washington Post 2015 Notable Nonfiction Book.</div>
+      </div>
+    </section>
+    <section class="guest">
+      <div class="guest__info">
+        <div class="one-third column guest__img-container"><img class="guest__img" src="https://static.wixstatic.com/media/78559a_031b40263a89485aa60293a0209a1433.jpg/v1/fill/w_330,h_227,al_c,q_80,usm_0.66_1.00_0.01/78559a_031b40263a89485aa60293a0209a1433.jpg" style="object-fit: cover;"></div>
+        <div class="two-thirds column guest__bio"><h3 class="name">Lianna Carerra</h3> is a comedian, writer, and actor, touring internationally as a stand-up comic. She is currently cohabiting in Los Angeles, California with her partner and their dogs.</div>
+      </div>
+    </section>
+  </main>
+  <section class="contact">
+    <h2 class="red beige-font section-heading">Keep in Touch</h2>
+    <form action="#">
+      <input type="text" placeholder="Your name">
+      <input type="text" placeholder="Your email">
+      <button type="submit">Subscribe Me!</button>
+    </form>
+  </section>
+  <footer class="red">
+    <a href="http://facebook.com"><span class="icon icon-facebook"></span></a>
+    <a href="http://instagram.com"><span class="icon icon-instagram"></span></a>
+    <a href="mailto:hello@prismaticradio.com"><span class="icon icon-email"></span></a>
+  </footer>
+  <script src="/js/typekit.js" charset="utf-8"></script>
+  <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+  <script src="https://w.soundcloud.com/player/api.js"></script>
+  <script async src="/js/scripts.js" charset="utf-8"></script>
+</body>
+</html>

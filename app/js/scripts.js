@@ -1,6 +1,31 @@
 /* global SC, $ */
+(function () {
+  var container, player;
+  var stuck = true;
+  var playerHeight = null;
+  $(function () {
+    container = $('#playerContainer');
+    player = $('#player');
+    checkStatus();
+    $(window).scroll(checkStatus)
+    $(window).resize(function () { playerHeight = null; })
+  });
+
+  function checkStatus () {
+    var top = container[0].getBoundingClientRect().top;
+    playerHeight = playerHeight || player[0].getBoundingClientRect().height;
+    if (top <= window.innerHeight - playerHeight && stuck) {
+      player.removeClass('player--stuck');
+      stuck = false;
+    } else if (top > window.innerHeight - playerHeight && !stuck) {
+      player.addClass('player--stuck');
+      stuck = true;
+    }
+  }
+})()
+
 var playerContainer = $('#playerFrame');
-var teaserUrl = "https://soundcloud.com/prismatic-radio/the-cohabit-series-teaser";
+var teaserUrl = "http://soundcloud.com/prismatic-radio/the-cohabit-teaser";
 var display = {
   logo: $('#playerLogo'),
   playPause: $('#playerBtn'),
@@ -13,8 +38,8 @@ var display = {
 };
 
 if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-  $('.player-container').css('font-size', '24px').html(
-    $('<a class="h3">').attr('href', teaserUrl).attr('target', '_blank').text('Visit us on SoundCloud.')
+  $('.player').show().css({fontSize: '24px', textAlign: 'center'}).html(
+    $('<a class="h2 beige-font">').attr('href', teaserUrl).attr('target', '_blank').text('Listen here.')
   );
 } else {
   SC.oEmbed(teaserUrl, {element: playerContainer[0]})

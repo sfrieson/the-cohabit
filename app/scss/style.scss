@@ -1,6 +1,12 @@
 @import "variables";
 @import "grid";
 
+html, * {
+  position: relative; }
+
+html, body {
+  height: 100%; }
+
 body {
   background-color: $black;
   color: $beige;
@@ -8,6 +14,9 @@ body {
   font-size: 24px;
   line-height: 1.5em;
   margin: 0;
+}
+h1, h2, h3, .h1, .h2, .h3 {
+  font-weight: normal;
 }
 h1,
 .h1 {
@@ -32,6 +41,7 @@ h3,
   text-transform: uppercase;
 }
 .section-heading {
+  box-sizing: border-box;
   text-align: center;
   display: inline-block;
   padding: 8px 12px;
@@ -39,13 +49,14 @@ h3,
     bottom: 20px;
     left: auto;
     right: auto;
-    top: 60px;
+    top: 120px;
   };
 }
 .name {
   @extend .h2;
   color: $red;
   background-color: $beige;
+  box-sizing: border-box;
   display: inline;
   padding: 2px 5px;
   margin-right: .25em;
@@ -70,24 +81,29 @@ a {
 }
 
 hr {
-  border: 2px solid $red;
-  width: 75px;
+  border: 1px solid rgba($red, 0.5);
+  box-shadow: 0 0 3px rgba($red, 0.5);
+  box-sizing: border-box;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0;
+  width: 110px;
 }
 .space-below {
   margin-bottom: 300px;
 }
 .header {
-  // background-image: url('https://static.wixstatic.com/media/78559a_edf9b500d6684619bea78c1931aa9812.png/v1/fill/w_1178,h_593,al_c,usm_0.66_1.00_0.01/78559a_edf9b500d6684619bea78c1931aa9812.png'), url('http://www.wzchutian.com/wp-content/uploads/w/w-stunning-vinyl-wood-effect-planks-wood-planks-tile-floor-wood-planks-texture-free-wood-planks-tile-wood-roof-planks-wood-roasting-planks-wood-planks-for-raised-beds-wood-grilling-planks-reci.jpg');
-  background-position: bottom center, top left;
-  background-repeat: no-repeat, repeat;
-  background-size: auto, cover;
+  background-image: url("../images/the-cohabit-bg.jpg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
   box-sizing: border-box;
 
   padding: {
-    top: 100px;
+    top: 200px;
     left: 20px;
     right: 20px;
-    bottom: 30px;
+    bottom: 150px;
   }
   @media (min-width: 550px) {
     padding: {
@@ -110,11 +126,17 @@ hr {
 
   &__tag-line {
     @extend .h1;
-    color: $beige;
+    color: #fff2d2;
+    letter-spacing: .46em;
+    text-shadow: 0 0 15px #333333;
+    margin-bottom: 0;
+    margin-top: 0px;
+    opacity: .85;
   }
 
   &__quote {
     background-color: rgba($black, .5);
+    box-sizing: border-box;
     display: inline-block;
     font-family: Times, Times New Roman, serif;
     font-size: 16px;
@@ -126,25 +148,53 @@ hr {
     @extend .h3;
     text-shadow: 0 0 15px $black;
   }
+
+  &__prismatic {
+    img {
+      margin-top: 20px;
+      width: 180px;
+    }
+    h3 {
+      line-height: 1em;
+      margin: 0;
+      opacity: .53;
+    }
+  }
+
+  &__coming-soon {
+    @extend .h3;
+    font-size: .8em;
+    line-height: 1em;
+  }
 }
 
 $player-margin: 50px;
 .player {
+  background-color: $red;
+  box-sizing: border-box;
+  font-size: 12px;
+  min-height: 100px;
+  padding: 25px 10px;
+  text-align: center;
+  width: 100%;
+  &--stuck {
+    position: fixed;
+    bottom: 0;
+    z-index: 5;
+  }
   &-container{
-    background-color: $red;
     box-sizing: border-box;
-    font-size: 12px;
-    min-height: 150px;
-    padding: 50px 10px;
-    text-align: center;
-    width: 100vw;
+    position: relative;
+    width: 100%;
   }
 
   @media (min-width: 700px) {
-    width: 80%;
-    margin: 0 auto;
+    padding: {
+      left: 10%;
+      right: 10%;
+    }
     .player__progress {
-      width: calc(100% - 450px);
+      width: calc(100% - 475px);
     }
   }
 
@@ -164,8 +214,8 @@ $player-margin: 50px;
       left: 20px;
       right: 0;
     }
-    height: 50px;
-    width: 50px;
+    height: 60px;
+    width: 60px;
 
     @media (min-width: 600px) {
       float: none;
@@ -187,41 +237,43 @@ $player-margin: 50px;
   }
 
   &__time {
+    letter-spacing: .08em;
     margin-left: $player-margin;
     text-align: center;
     width: 8ch;
   }
 
-    &__progress {
-      -webkit-appearance: none;
-      appearance: none;
-      padding-top: 6px;
-      margin-left: $player-margin;
-      width: 200px;
+  &__progress {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    padding-top: 6px;
+    margin-left: $player-margin;
+    width: 200px;
 
-      &::-webkit-progress-bar {
-        height: 1px;
-        background-color: $dark-red;
+    &::-webkit-progress-bar {
+      height: 1px;
+      background-color: $dark-red;
 
-      }
-      &::-webkit-progress-value {
-        background-color: #fff;
-        border-radius: 3px;
-        box-shadow: 0 0 8px 2px rgba(255,255,255, .4);
-        height: 7px;
-        position: relative;
-        top: -3px;
-      }
+    }
+    &::-webkit-progress-value {
+      background-color: #fff;
+      border-radius: 3px;
+      box-shadow: 0 0 8px 2px rgba(255,255,255, .4);
+      height: 7px;
+      position: relative;
+      top: -3px;
+    }
   }
 
   &__logo {
     background-image: url('/images/logo-soundcloud.svg');
     background-repeat: no-repeat;
-    background-size: contain;;
-    display: inline-block;;
-    margin-left: 10px;
-    height: 20px;
-    width: 20px;
+    background-size: contain;
+    display: inline-block;
+    margin-left: 15px;
+    height: 30px;
+    width: 30px;
   }
 }
 
@@ -230,48 +282,70 @@ main {
 }
 
 .guest {
-  background-position: center;
-  background-size:cover;
-  // overflow: hidden;
-  padding: 0 20px;
+  // background-position: center;
+  // background-size:cover;
+  // // overflow: hidden;
+  box-sizing: border-box;
+  padding: {
+    left: 10px;
+    right: 10px;
+  }
   position: relative;
   text-align: center;
-
-  &:after {
-    content: "";
+  @media (min-width: 550px) {
+    padding: {
+      left: 100px;
+      right: 100px;
+    }
+  }
+  &--extended {
+    box-sizing: border-box;
+    padding-top: 140px;
+  }
+  &-container {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
     display: block;
-    position: absolute;
+    position: relative;
     height: 100%;
-    top: 0;
-    left: 0;
-    opacity: .5;
     width: 100%;
     z-index: 0;
-  }
-  &:nth-child(odd) {
-    &:after {
-      background-color: $dark-red;
-    }
     @media (min-width: 550px) {
-      .guest__img {
-        transform: rotate(-3deg);
+      background-attachment: fixed;
+    }
+    @for $i from 1 through 9 {
+      &:nth-child(#{$i + 1}) {
+        background-image: url('/images/bg#{$i}.jpg');
+      }
+    }
+    &:nth-child(odd) {
+      .guest {
+        background-color: rgba(113, 40, 30, 0.6);
+      }
+      @media (min-width: 550px) {
+        .guest__img {
+          transform: rotate(-3deg);
+        }
+      }
+    }
+    &:nth-child(even) {
+      .guest {
+          background-color: rgba(0, 0, 0, 0.6);
+      }
+      @media (min-width: 550px) {
+        .guest__img {
+          transform: rotate(3deg);
+        }
       }
     }
   }
-  &:nth-child(even) {
-    &:after {
-      background-color: $black;
-    }
-    @media (min-width: 550px) {
-      .guest__img {
-        transform: rotate(3deg);
-      }
-    }
-  }
-  @for $i from 1 through 9 {
-    &:nth-child(#{$i}) {
-      background-image: url('/images/bg#{$i}.jpg');
-    }
+  &__header {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
   }
   &__info {
     @extend .row;
@@ -282,7 +356,7 @@ main {
     &-container {
       margin: 50px 0;
       @media (min-width: 550px) {
-        text-align: right;
+        text-align: center;
         margin: 100px 0;
       }
     }
@@ -300,14 +374,24 @@ main {
 }
 
 .contact {
+  background-color: $beige;
   padding: {
     bottom: 50px;
     left: 20px;
     right: 20px;
-    top: 50px
+    top: 75px
   }
+  position: relative;
   text-align: center;
+}
+.about {
   background-color: $beige;
+  padding: {
+    bottom: 50px;
+    left: 15vw;
+    right: 15vw;
+    top: 50px;
+  }
 }
 
 footer {
@@ -320,8 +404,8 @@ $icons: facebook, instagram, email;
   background-repeat: no-repeat;
   content: "";
   display: inline-block;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   margin: 20px 10px;
   @each $icon in $icons {
     &-#{$icon} {
@@ -344,7 +428,6 @@ form {
     padding: 15px;
     font-family: $brandon;
     font-size: 10px;
-    font-weight: bold;
     letter-spacing: .1em;
     margin: 10px 5px;
     text-transform: uppercase;
@@ -360,8 +443,10 @@ form {
     }
   }
   button {
-    background-color: $black;
+    border-color: $red;
+    background-color: $red;
     color: $beige;
+    font-size: 12px;
     @media (min-width: 550px) {
       margin: {
         bottom: 10px;
@@ -370,3 +455,26 @@ form {
     }
   }
 }
+
+.circle {
+  background-color: #ebe8df;
+  border-radius: 75px;
+  box-sizing: border-box;
+  height: 150px;
+  margin: 0 auto;
+  padding: 30px;
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  z-index: 4; }
+  .circle img {
+    width: 100%;
+    height: 100%; }
+
+.no-underline {
+  text-decoration: none; }
+
+.copyright {
+  margin: 0; }

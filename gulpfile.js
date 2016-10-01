@@ -8,7 +8,7 @@ gulp.task('default', ['browserSync', 'watch'], () => {
 gulp.task('browserSync', ['sass'], function () {
   browserSync.init({
     server: {
-      baseDir: 'app'
+      // baseDir: './'
     }
   });
 });
@@ -16,7 +16,21 @@ gulp.task('browserSync', ['sass'], function () {
 gulp.task('sass', () => {
   return gulp.src('app/scss/**/*.scss')
   .pipe(sass())
-  .pipe(gulp.dest('app/css'))
+  .pipe(gulp.dest('css'))
+  .pipe(browserSync.reload({
+    stream: true
+  }));
+});
+gulp.task('js', () => {
+  return gulp.src('app/js/**/*.js')
+  .pipe(gulp.dest('/js'))
+  .pipe(browserSync.reload({
+    stream: true
+  }));
+});
+gulp.task('html', () => {
+  return gulp.src('app/**/*.html')
+  .pipe(gulp.dest('./'))
   .pipe(browserSync.reload({
     stream: true
   }));
@@ -24,6 +38,7 @@ gulp.task('sass', () => {
 
 gulp.task('watch', () => {
   gulp.watch(['app/scss/**/*.scss', '!app/scss/variables.scss'], ['sass']);
-  gulp.watch('app/*.html', browserSync.reload);
-  gulp.watch('app/js/**/*.js', browserSync.reload);
+  gulp.watch('app/*.html', ['html']);
+  gulp.watch('app/js/**/*.js', ['js']);
+  gulp.watch('*.+(html|css|js)', browserSync.reload);
 });
