@@ -11,7 +11,10 @@
     $(window).resize(function () { playerHeight = null; })
     var $modal = $('#modal');
     setTimeout(function () {
-      $modal.modal({fadeDuration: 100});
+      $modal.modal({
+        fadeDuration: 250,
+        fadeDelay: 1.5
+      });
     }, 3000);
   });
 
