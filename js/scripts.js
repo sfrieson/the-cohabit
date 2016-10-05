@@ -10,12 +10,10 @@
     $(window).scroll(checkStatus)
     $(window).resize(function () { playerHeight = null; })
     var $modal = $('#modal');
-    setTimeout(function () {
-      $modal.modal({
-        fadeDuration: 250,
-        fadeDelay: 1.5
-      });
-    }, 3000);
+    $modal.modal({
+      fadeDuration: 2000,
+      fadeDelay: 3
+    });
   });
 
   function checkStatus () {
@@ -32,7 +30,7 @@
 })()
 
 var playerContainer = $('#playerFrame');
-var teaserUrl = "http://soundcloud.com/prismatic-radio/the-cohabit-teaser";
+var teaserUrl = "http://soundcloud.com/prismatic-radio/the-cohabit-episode-1";
 var display = {
   logo: $('#playerLogo'),
   playPause: $('#playerBtn'),
