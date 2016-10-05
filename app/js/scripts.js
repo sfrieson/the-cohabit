@@ -11,7 +11,7 @@
     $(window).resize(function () { playerHeight = null; })
     var $modal = $('#modal');
     $modal.modal({
-      fadeDuration: 2000,
+      fadeDuration: 500,
       fadeDelay: 3
     });
   });
