@@ -30,7 +30,7 @@
 })()
 
 var playerContainer = $('#playerFrame');
-var teaserUrl = "http://soundcloud.com/prismatic-radio/the-cohabit-teaser";
+var teaserUrl = "http://soundcloud.com/prismatic-radio/the-cohabit-episode-1";
 var display = {
   logo: $('#playerLogo'),
   playPause: $('#playerBtn'),
