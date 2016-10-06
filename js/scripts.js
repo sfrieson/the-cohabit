@@ -9,11 +9,11 @@
     checkStatus();
     $(window).scroll(checkStatus)
     $(window).resize(function () { playerHeight = null; })
-    var $modal = $('#modal');
-    $modal.modal({
-      fadeDuration: 500,
-      fadeDelay: 3
-    });
+    // var $modal = $('#modal');
+    // $modal.modal({
+    //   fadeDuration: 500,
+    //   fadeDelay: 3
+    // });
   });
 
   function checkStatus () {
