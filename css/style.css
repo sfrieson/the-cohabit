@@ -40,10 +40,12 @@
   .offset-three-quarters.column {
     margin-left: 75%; } }
 
-html, * {
+html,
+* {
   position: relative; }
 
-html, body {
+html,
+body {
   height: 100%; }
 
 body {
@@ -54,7 +56,17 @@ body {
   line-height: 1.5em;
   margin: 0; }
 
-h1, h2, h3, .h1, .header__tag-line, .h2, .name, .h3, .header__quote-attr, .header__coming-soon, .player__title {
+h1,
+h2,
+h3,
+.h1,
+.header__tag-line,
+.h2,
+.name,
+.h3,
+.header__quote-attr,
+.header__coming-soon,
+.player__title {
   font-weight: normal; }
 
 h1,
@@ -62,7 +74,7 @@ h1,
 .header__tag-line {
   font-family: "bebas-neue", Impact, sans-serif;
   font-size: 1.333em;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   line-height: 1.4em; }
 
 h2,
@@ -70,8 +82,8 @@ h2,
 .name {
   color: #cd4837;
   font-family: "brandon-grotesque", Futura, sans-serif;
-  font-size: .8333em;
-  letter-spacing: .1em;
+  font-size: 0.8333em;
+  letter-spacing: 0.1em;
   text-transform: uppercase; }
 
 h3,
@@ -80,8 +92,8 @@ h3,
 .header__coming-soon,
 .player__title {
   font-family: "brandon-grotesque", Futura, sans-serif;
-  font-size: .4167em;
-  letter-spacing: .1em;
+  font-size: 0.4167em;
+  letter-spacing: 0.1em;
   text-transform: uppercase; }
 
 .section-heading {
@@ -100,7 +112,7 @@ h3,
   box-sizing: border-box;
   display: inline;
   padding: 2px 5px;
-  margin-right: .25em;
+  margin-right: 0.25em;
   text-transform: uppercase; }
 
 .center {
@@ -169,11 +181,11 @@ hr {
       width: 100%; }
   .header__tag-line {
     color: #fff2d2;
-    letter-spacing: .46em;
+    letter-spacing: 0.46em;
     text-shadow: 0 0 15px #333333;
     margin-bottom: 0;
     margin-top: 0px;
-    opacity: .85; }
+    opacity: 0.85; }
   .header__quote {
     background-color: rgba(51, 51, 51, 0.5);
     box-sizing: border-box;
@@ -191,9 +203,9 @@ hr {
   .header__prismatic h3 {
     line-height: 1em;
     margin: 0;
-    opacity: .53; }
+    opacity: 0.53; }
   .header__coming-soon {
-    font-size: .8em;
+    font-size: 0.8em;
     line-height: 1em; }
 
 .player {
@@ -226,7 +238,6 @@ hr {
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
-    display: inline-block;
     float: left;
     margin-left: 20px;
     margin-right: 0;
@@ -244,7 +255,7 @@ hr {
     font-size: inherit;
     margin-left: 50px; }
   .player__time {
-    letter-spacing: .08em;
+    letter-spacing: 0.08em;
     margin-left: 50px;
     text-align: center;
     width: 8ch; }
@@ -408,7 +419,7 @@ form {
     padding: 15px;
     font-family: "brandon-grotesque", Futura, sans-serif;
     font-size: 12px;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
     margin: 10px 5px;
     text-align: center;
     text-transform: uppercase;
@@ -448,9 +459,6 @@ form {
 .circle img {
   width: 100%;
   height: 100%; }
-
-.no-underline {
-  text-decoration: none; }
 
 .copyright {
   margin: 0; }
