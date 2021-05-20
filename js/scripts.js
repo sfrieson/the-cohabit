@@ -4,72 +4,88 @@
   var stuck = true;
   var playerHeight = null;
   $(function () {
-    container = $('#playerContainer');
-    player = $('#player');
+    container = $("#playerContainer");
+    player = $("#player");
     checkStatus();
-    $(window).scroll(checkStatus)
-    $(window).resize(function () { playerHeight = null; })
-    // var $modal = $('#modal');
-    // $modal.modal({
-    //   fadeDuration: 500,
-    //   fadeDelay: 3
-    // });
+    $(window).scroll(checkStatus);
+    $(window).resize(function () {
+      playerHeight = null;
+    });
   });
 
-  function checkStatus () {
+  function checkStatus() {
     var top = container[0].getBoundingClientRect().top;
     playerHeight = playerHeight || player[0].getBoundingClientRect().height;
     if (top <= window.innerHeight - playerHeight && stuck) {
-      player.removeClass('player--stuck');
+      player.removeClass("player--stuck");
       stuck = false;
     } else if (top > window.innerHeight - playerHeight && !stuck) {
-      player.addClass('player--stuck');
+      player.addClass("player--stuck");
       stuck = true;
     }
   }
-})()
+})();
 
-var playerContainer = $('#playerFrame');
+var playerContainer = $("#playerFrame");
 var teaserUrl = "http://soundcloud.com/prismatic-radio/the-cohabit-episode-1";
 var display = {
-  logo: $('#playerLogo'),
-  playPause: $('#playerBtn'),
-  playTitle: $('#playerName'),
-  progress: $('#playerProgress'),
+  logo: $("#playerLogo"),
+  playPause: $("#playerBtn"),
+  playTitle: $("#playerName"),
+  progress: $("#playerProgress"),
   time: {
-    min: $('#min'),
-    sec: $('#sec')
-  }
+    min: $("#min"),
+    sec: $("#sec"),
+  },
 };
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-  $('.player').show().css({fontSize: '24px', textAlign: 'center'}).html(
-    $('<a class="h2 beige-font">').attr('href', teaserUrl).attr('target', '_blank').text('Listen here.')
-  );
+if (
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    navigator.userAgent
+  )
+) {
+  $(".player")
+    .show()
+    .css({ fontSize: "24px", textAlign: "center" })
+    .html(
+      $('<a class="h2 beige-font">')
+        .attr("href", teaserUrl)
+        .attr("target", "_blank")
+        .text("Listen here.")
+    );
 } else {
-  SC.oEmbed(teaserUrl, {element: playerContainer[0]})
-  .then(function (scPlayer) {
+  const widget = SC.Widget("player-frame");
+
+  widget.bind(SC.Widget.Events.READY, () => {
+    console.log("new guy is ready");
     // Grab widget controls
-    $('iframe').load(function () {
-      $('#player').fadeIn();
-      var player = new Player(scPlayer, SC.Widget(this));
-      // Show custom widget buttons, and map the functionality
-      player.mapControls();
-      player.startListening();
-      player.setText();
-    });
+    $("#player").fadeIn();
+    var player = new Player({}, widget);
+    // Show custom widget buttons, and map the functionality
+    player.mapControls();
+    player.startListening();
+    player.setText();
   });
 }
 
-function Player (player, widget) {
+function Player(player, widget) {
+  // debugger;
   // Loaded info
-  this.title = player.title.replace('by Prismatic Radio', '');
-  this.artist = player.author_name;
-  this.description = player.description;
+  // this.title = player.title.replace("by Prismatic Radio", "");
+  // this.artist = player.author_name;
+  // this.description = player.description;
+  // this.links = {
+  //   artist: player.author_url,
+  //   sc: player.provider_url,
+  //   img: player.thumbnail_url,
+  // };
+  this.title = "";
+  this.artist = "";
+  this.description = "";
   this.links = {
-    artist: player.author_url,
-    sc: player.provider_url,
-    img: player.thumbnail_url
+    artist: "",
+    sc: "",
+    img: "",
   };
 
   // Widget Methods
@@ -105,71 +121,80 @@ Player.events = {
   pause: SC.Widget.Events.PAUSE,
   finish: SC.Widget.Events.FINISH,
   ready: SC.Widget.Events.READY,
-  seek: SC.Widget.Events.SEEK
+  seek: SC.Widget.Events.SEEK,
 };
 Player.prototype.startListening = function () {
-  console.log('startListening');
   var that = this;
-  this.bind(Player.events.play, function () { that.setState('playing'); });
-  this.bind(Player.events.pause, function () { that.setState('paused'); });
+  this.bind(Player.events.play, function () {
+    that.setState("playing");
+  });
+  this.bind(Player.events.pause, function () {
+    that.setState("paused");
+  });
 };
 Player.prototype.mapControls = function () {
   var that = this;
   display.progress.click(function (e) {
-    console.log(e);
     that.scrub(e.offsetX / display.progress.width());
   });
-  display.playPause.click(function () { that.playPause(); });
+  display.playPause.click(function () {
+    that.playPause();
+  });
 };
 
 Player.prototype.playPause = function () {
   // Toggle play/pause
-  this.isPaused(function (isPaused) {
-    if (isPaused) {
-      this.play();
-      this.setState('playing');
-      this.bind(Player.events.playProgress, function (data) {
-        this.setProgress(data.currentPosition);
-        this.setTime(Math.floor(this.duration * data.relativePosition / 1000));
-      }.bind(this));
-    } else {
-      this.pause();
-      this.setState('paused');
-      this.unbind(Player.events.playProgress);
-    }
-  }.bind(this));
+  this.isPaused(
+    function (isPaused) {
+      if (isPaused) {
+        this.play();
+        this.setState("playing");
+        this.bind(
+          Player.events.playProgress,
+          function (data) {
+            this.setProgress(data.relativePosition, 1);
+            this.setTime(Math.floor(this.duration * data.relativePosition));
+          }.bind(this)
+        );
+      } else {
+        this.pause();
+        this.setState("paused");
+        this.unbind(Player.events.playProgress);
+      }
+    }.bind(this)
+  );
 };
 
 Player.prototype.setProgress = function (position, duration) {
-  display.progress.attr('value', position);
-  if (duration) display.progress.attr('max', duration);
+  display.progress.attr("value", position);
+  if (duration) display.progress.attr("max", duration);
 };
 
 Player.prototype.setText = function () {
   var that = this;
-  $('#playerName').text(this.title);
-  $('#playerLogo').attr('href', this.links.artist);
+  $("#playerName").text(this.title);
+  $("#playerLogo").attr("href", this.links.artist);
 
   this.getDuration(function (d) {
     that.duration = d;
-    that.setTime(Math.floor(d / 1000));
+    that.setTime(d);
     that.setProgress(0, d);
   });
 };
 
 Player.prototype.setState = function (state) {
-  if (state === 'playing') {
-    display.playPause.addClass('player__btn--playing');
+  if (state === "playing") {
+    display.playPause.addClass("player__btn--playing");
   }
-  if (state === 'paused') {
-    display.playPause.removeClass('player__btn--playing');
+  if (state === "paused") {
+    display.playPause.removeClass("player__btn--playing");
   }
 };
 
-Player.prototype.setTime = function (seconds) {
-  var minutes = Math.floor(seconds / 60);
-  seconds = seconds % 60;
-  if (seconds < 10) seconds = '0' + seconds;
+Player.prototype.setTime = function (milliseconds) {
+  var minutes = Math.floor(milliseconds / 60000);
+  var seconds = Math.floor(milliseconds / 1000) % 60;
+  if (seconds < 10) seconds = "0" + seconds;
   display.time.min.html(minutes);
   display.time.sec.html(seconds);
 };

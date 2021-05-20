@@ -12,15 +12,8 @@
   <link rel="icon" href="images/ch-favicon.png" type="images/png">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="js/jquery.modal.min.js" type="text/javascript" charset="utf-8"></script>
-  <link rel="stylesheet" href="css/jquery.modal.min.css" type="text/css" media="screen" />
 </head>
 <body>
-  <div id="modal"style="display: none;">
-    <div class='video-container'>
-      <iframe class='video' width="560" height="315" src="https://www.youtube.com/embed/l6LsQofjM40" frameborder="0" allowfullscreen></iframe>
-    </div>
-</div>
   <header class="header">
     <h1 class="header__logo"><img src="images/cohabit-logo-paper-2.png" alt="The Cohabit"></h1>
     <h2 class="header__tag-line space-above">Written and directed by Daisy James</h2>
@@ -36,7 +29,9 @@
       <progress id="playerProgress" class="player__progress" value="50" max="100">50%</progress>
       <a id="playerLogo" href=""><span  class="player__logo"></span></a>
     </div>
-    <div id="playerFrame" class="player__frame"></div>
+    <div id="playerFrame" class="player__frame">
+      <iframe id="player-frame" width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/286200735&color=%23ff5500&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/prismatic-radio" title="Prismatic Radio" target="_blank" style="color: #cccccc; text-decoration: none;">Prismatic Radio</a> · <a href="https://soundcloud.com/prismatic-radio/the-cohabit-episode-1" title="The Cohabit - Episode 1" target="_blank" style="color: #cccccc; text-decoration: none;">The Cohabit - Episode 1</a></div>
+    </div>
   </div>
   <main>
     <section class="about">
@@ -132,7 +127,7 @@
     <h3 class="dark-red-font copyright">Copyright Prismatic Radio LLC, 2016</h3>
   </footer>
   <script src="js/typekit.js" charset="utf-8"></script>
-  <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
+  <!-- <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script> -->
   <script src="https://w.soundcloud.com/player/api.js"></script>
   <script async src="js/scripts.js" charset="utf-8"></script>
 </body>
