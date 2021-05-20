@@ -54,32 +54,38 @@ if (
         .text("Listen here.")
     );
 } else {
-  SC.oEmbed(teaserUrl, { element: playerContainer[0] }).then(function (
-    scPlayer
-  ) {
+  const widget = SC.Widget("player-frame");
+
+  widget.bind(SC.Widget.Events.READY, () => {
+    console.log("new guy is ready");
     // Grab widget controls
-    const iframe = $("iframe");
-    iframe.attr("allow", "autoplay");
-    iframe.load(function () {
-      $("#player").fadeIn();
-      var player = new Player(scPlayer, SC.Widget(this));
-      // Show custom widget buttons, and map the functionality
-      player.mapControls();
-      player.startListening();
-      player.setText();
-    });
+    $("#player").fadeIn();
+    var player = new Player({}, widget);
+    // Show custom widget buttons, and map the functionality
+    player.mapControls();
+    player.startListening();
+    player.setText();
   });
 }
 
 function Player(player, widget) {
+  // debugger;
   // Loaded info
-  this.title = player.title.replace("by Prismatic Radio", "");
-  this.artist = player.author_name;
-  this.description = player.description;
+  // this.title = player.title.replace("by Prismatic Radio", "");
+  // this.artist = player.author_name;
+  // this.description = player.description;
+  // this.links = {
+  //   artist: player.author_url,
+  //   sc: player.provider_url,
+  //   img: player.thumbnail_url,
+  // };
+  this.title = "";
+  this.artist = "";
+  this.description = "";
   this.links = {
-    artist: player.author_url,
-    sc: player.provider_url,
-    img: player.thumbnail_url,
+    artist: "",
+    sc: "",
+    img: "",
   };
 
   // Widget Methods
@@ -147,7 +153,7 @@ Player.prototype.playPause = function () {
           Player.events.playProgress,
           function (data) {
             this.setProgress(data.relativePosition, 1);
-            this.setTime(Math.floor(130 * data.relativePosition));
+            this.setTime(Math.floor(this.duration * data.relativePosition));
           }.bind(this)
         );
       } else {
@@ -171,7 +177,7 @@ Player.prototype.setText = function () {
 
   this.getDuration(function (d) {
     that.duration = d;
-    that.setTime(Math.floor(d / 1000));
+    that.setTime(d);
     that.setProgress(0, d);
   });
 };
@@ -185,9 +191,9 @@ Player.prototype.setState = function (state) {
   }
 };
 
-Player.prototype.setTime = function (seconds) {
-  var minutes = Math.floor(seconds / 60);
-  seconds = seconds % 60;
+Player.prototype.setTime = function (milliseconds) {
+  var minutes = Math.floor(milliseconds / 60000);
+  var seconds = Math.floor(milliseconds / 1000) % 60;
   if (seconds < 10) seconds = "0" + seconds;
   display.time.min.html(minutes);
   display.time.sec.html(seconds);
